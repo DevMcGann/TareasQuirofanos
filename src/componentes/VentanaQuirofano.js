@@ -12,6 +12,7 @@ Operar sobre ese Hook
 const VentanaQuirofano = ({quirofanoClicado}) => {
 
     const {quirofano} = quirofanoClicado
+    const nombreQuirofano = quirofano.nombre
 
     // cargar  de localstorage como state inicial
     let tareasIniciales = JSON.parse(localStorage.getItem('tareas'));
@@ -62,7 +63,7 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
     return ( 
         <React.Fragment>
         <div className="quirofanoSeleccionado">
-            <h1>{quirofano.nombre}</h1>
+            <h1>{nombreQuirofano}</h1>
 
             <div className="nuevaTarea">
                 <form onSubmit={handleSubmit}>
