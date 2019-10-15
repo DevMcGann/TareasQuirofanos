@@ -16,7 +16,7 @@ const ListaQuirofanos = () => {
     }
   
 
-    const [quirofanosArray, setQuirofanosArray] = useState([quirofanosIniciales])
+    const [quirofanosArray, setQuirofanosArray] = useState(quirofanosIniciales)
     const [nuevoQuirofano, setNuevoQuirofano] = useState("")
     const [quirofanoClicado, setQuirofanoClicado] = useState({})
         
@@ -71,21 +71,27 @@ const ListaQuirofanos = () => {
                         </form>
                     </div>
 
-                    <div className="listaQuirofanos">
+
+                    {quirofanosArray.length ? (
+                            <div className="listaQuirofanos">
                         
-                        {quirofanosArray.map((quirofano, index ) => (
-                            <Quirofano 
-                                key={index}
-                                index={index}
-                                quirofano={quirofano}
-                                id={quirofano.id}
-                                eliminarQuirofano={eliminarQuirofano}
-                                quirofanoSeleccionado={quirofanoSeleccionado}
-                                
-                            />
-                        ))}
-                        
-                    </div>
+                            {quirofanosArray.map((quirofano, index ) => (
+                                <Quirofano 
+                                    key={index}
+                                    index={index}
+                                    quirofano={quirofano}
+                                    id={quirofano.id}
+                                    eliminarQuirofano={eliminarQuirofano}
+                                    quirofanoSeleccionado={quirofanoSeleccionado}
+                                    
+                                />
+                            ))}
+                            
+                        </div>
+                    ) : (
+                        <p>No hay Quirófanos</p>
+                    )}
+                    
                     </React.Fragment>
                  )} />
 
