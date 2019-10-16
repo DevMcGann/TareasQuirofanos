@@ -28,9 +28,7 @@ const ListaQuirofanos = () => {
         
         }
         setQuirofanosArray([...quirofanosArray,quirofano])
-        console.log("quirofano" + quirofano)
-        console.log("ArrayQuirofanos: " + quirofanosArray)
-    }
+        }
 
     const eliminarQuirofano = index => {
         const nuevosQuirofanos = [...quirofanosArray];
@@ -74,7 +72,7 @@ const ListaQuirofanos = () => {
 
                     {quirofanosArray.length ? (
                             <div className="listaQuirofanos">
-                        
+                                <h2>Personas</h2>
                             {quirofanosArray.map((quirofano, index ) => (
                                 <Quirofano 
                                     key={index}

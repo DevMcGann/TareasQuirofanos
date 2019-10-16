@@ -26,6 +26,11 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
     const[tareaNueva, setTareaNueva] = useState("")
     /************************************************ */
 
+    //filtrar tareas del array de tareas, segun su idQuirofano == quirofano.id
+    const filtrado = tareasArray.filter(tarea => tarea.idQuirorano === quirofano.id)
+    
+
+
     const handleSubmit = e => {
         e.preventDefault();
         const tarea= {
@@ -39,11 +44,19 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
     }
 
 
-    const eliminarTarea = index => {
+    const eliminaTarea = id => {
         const nuevasTareas = [...tareasArray];
-        nuevasTareas.splice(index, 1);
-        setTareasArray(nuevasTareas);
-      }
+        var newArray = nuevasTareas.filter(function (tar) {
+            return tar.id !== id 
+          });
+          setTareasArray(newArray)
+    }
+
+    const cambiarEstadoTarea = tarea => {
+        const tareaModificada = tarea
+        eliminaTarea(tarea.id)
+        setTareasArray([...tareasArray,tareaModificada])
+    }
 
 
 
@@ -76,14 +89,16 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
 
             {!tareasArray.length ? (<p>No hay tareas</p>) : (
                  <div className="listaTareas">
-                        
-                     {tareasArray.map((tarea, index ) => (
+                        <h2>Tareas de {nombreQuirofano}</h2>
+                     {filtrado.map((tarea, index ,id) => (
                          <Tarea 
                              key={index}
                              index={index}
                              tarea={tarea}
                              id={tarea.id}
-                             eliminarTarea={eliminarTarea}    
+                             //eliminarTarea={eliminarTarea}   
+                             eliminaTarea={eliminaTarea}
+                             cambiarEstadoTarea={cambiarEstadoTarea} 
                     />
                 ))}
                 
