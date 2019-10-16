@@ -7,14 +7,13 @@ const Tarea = ({tarea,eliminaTarea,cambiarEstadoTarea}) => {
         }
 
     const cambiarEstado = e => {
-        var nuevaTarea = tarea;
-        eliminaTarea(tarea.id)
-        if (nuevaTarea.complete === false){
-            nuevaTarea.complete = true
+        
+        if (tarea.complete === false){
+            tarea.complete = true
         }else{
-            nuevaTarea.complete = false
+            tarea.complete = false
         }
-        cambiarEstadoTarea(nuevaTarea)
+        cambiarEstadoTarea(tarea)
     }
 
     return ( 

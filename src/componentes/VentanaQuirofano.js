@@ -54,8 +54,16 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
 
     const cambiarEstadoTarea = tarea => {
         const tareaModificada = tarea
-        eliminaTarea(tarea.id)
-        setTareasArray([...tareasArray,tareaModificada])
+        const copiaArray = [...tareasArray]
+        var newArray = copiaArray.filter(function (tar) {
+            return tar.id !== tarea.id 
+          });
+        newArray.push(tareaModificada)
+        setTareasArray(newArray)
+
+        //eliminaTarea(tarea.id)
+        
+       //setTareasArray([...tareasArray,tareaModificada])
     }
 
 
@@ -90,13 +98,11 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
             {!tareasArray.length ? (<p>No hay tareas</p>) : (
                  <div className="listaTareas">
                         <h2>Tareas de {nombreQuirofano}</h2>
-                     {filtrado.map((tarea, index ,id) => (
+                     {filtrado.map((tarea,index) => (
                          <Tarea 
                              key={index}
-                             index={index}
                              tarea={tarea}
                              id={tarea.id}
-                             //eliminarTarea={eliminarTarea}   
                              eliminaTarea={eliminaTarea}
                              cambiarEstadoTarea={cambiarEstadoTarea} 
                     />
