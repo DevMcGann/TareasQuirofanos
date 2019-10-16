@@ -30,11 +30,28 @@ const ListaQuirofanos = () => {
         setQuirofanosArray([...quirofanosArray,quirofano])
         }
 
-    const eliminarQuirofano = index => {
+
+
+        
+    const eliminarQuirofano2 = id => {
+        eliminar_Tareas_Relacionadas(id)
         const nuevosQuirofanos = [...quirofanosArray];
-        nuevosQuirofanos.splice(index, 1);
-        setQuirofanosArray(nuevosQuirofanos);
-      }
+        var newArray = nuevosQuirofanos.filter(function (quirofano) {
+            return quirofano.id !== id 
+          });
+          setQuirofanosArray(newArray)
+    }
+    const eliminar_Tareas_Relacionadas = id => {
+        let tareas = JSON.parse(localStorage.getItem('tareas'))
+        console.log(tareas)
+        let tareas_filtradas = tareas.filter( function (tarea){
+            return tarea.idQuirofano !== id
+        });
+        localStorage.setItem('tareas', JSON.stringify(tareas_filtradas))
+        console.log(tareas_filtradas)
+    }
+
+
 
       const quirofanoSeleccionado = quirofano => {
         setQuirofanoClicado({quirofano})
@@ -72,14 +89,14 @@ const ListaQuirofanos = () => {
 
                     {quirofanosArray.length ? (
                             <div className="listaQuirofanos">
-                                <h2>Personas</h2>
+                                <h2>Quirofanos</h2>
                             {quirofanosArray.map((quirofano, index ) => (
                                 <Quirofano 
                                     key={index}
                                     index={index}
                                     quirofano={quirofano}
                                     id={quirofano.id}
-                                    eliminarQuirofano={eliminarQuirofano}
+                                    eliminarQuirofano2={eliminarQuirofano2}
                                     quirofanoSeleccionado={quirofanoSeleccionado}
                                     
                                 />

@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-const Quirofano = ({quirofano, eliminarQuirofano,index, quirofanoSeleccionado}) => {
+const Quirofano = ({quirofano, eliminarQuirofano2,index, quirofanoSeleccionado}) => {
     
     const clickEliminar = e => {
-        eliminarQuirofano(index)
+        eliminarQuirofano2(quirofano.id)
     }
 
     const handleClick = (e) => {

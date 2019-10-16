@@ -41,6 +41,7 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
         
         }
         setTareasArray([...tareasArray,tarea])
+        setTareaNueva("")
     }
 
 
@@ -58,12 +59,9 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
         var newArray = copiaArray.filter(function (tar) {
             return tar.id !== tarea.id 
           });
-        newArray.push(tareaModificada)
-        setTareasArray(newArray)
+        //newArray.push(tareaModificada)
+        setTareasArray([...newArray, tareaModificada])
 
-        //eliminaTarea(tarea.id)
-        
-       //setTareasArray([...tareasArray,tareaModificada])
     }
 
 
