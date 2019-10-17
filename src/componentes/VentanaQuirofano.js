@@ -53,28 +53,20 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
           setTareasArray(newArray)
     }
 
-    const cambiarEstadoTarea = tarea => {
+    const cambiarEstadoTarea = (tarea,index) => {
+        
         const tareaModificada = tarea
+        const indiceOriginal = index
         const copiaArray = [...tareasArray]
         var newArray = copiaArray.filter(function (tar) {
             return tar.id !== tarea.id 
           });
-        //newArray.push(tareaModificada)
-        setTareasArray([...newArray, tareaModificada])
+        newArray.splice(indiceOriginal,0, tareaModificada)
+        setTareasArray(newArray)
 
     }
 
-    //experimental//
-    
-    const handleCambiarEstado = id => {
-        const findTask = tareasArray.find(tarea => tarea.id === id);
-       
-        const taskUpdated = {
-            ...findTask,
-            complete: true
-        };
-        setTareasArray([...tareasArray, taskUpdated]);
-    }
+  
 
 
 
@@ -115,7 +107,8 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
                              id={tarea.id}
                              eliminaTarea={eliminaTarea}
                              cambiarEstadoTarea={cambiarEstadoTarea} 
-                             handleCambiarEstado={handleCambiarEstado}
+                             index={index}
+                             
                             />
                         ):(null)
                         )}
