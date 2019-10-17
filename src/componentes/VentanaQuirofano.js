@@ -27,7 +27,7 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
     /************************************************ */
 
     //filtrar tareas del array de tareas, segun su idQuirofano == quirofano.id
-    const filtrado = tareasArray.filter(tarea => tarea.idQuirorano === quirofano.id)
+    //const filtrado = tareasArray.filter(tarea => tarea.idQuirorano === quirofano.id)
     
 
 
@@ -64,6 +64,17 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
 
     }
 
+    //experimental//
+    
+    const handleCambiarEstado = id => {
+        const findTask = tareasArray.find(tarea => tarea.id === id);
+       
+        const taskUpdated = {
+            ...findTask,
+            complete: true
+        };
+        setTareasArray([...tareasArray, taskUpdated]);
+    }
 
 
 
@@ -96,15 +107,18 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
             {!tareasArray.length ? (<p>No hay tareas</p>) : (
                  <div className="listaTareas">
                         <h2>Tareas de {nombreQuirofano}</h2>
-                     {filtrado.map((tarea,index) => (
+                        
+                     {tareasArray.map((tarea,index) => tarea.idQuirorano === quirofano.id ? (
                          <Tarea 
                              key={index}
                              tarea={tarea}
                              id={tarea.id}
                              eliminaTarea={eliminaTarea}
                              cambiarEstadoTarea={cambiarEstadoTarea} 
-                    />
-                ))}
+                             handleCambiarEstado={handleCambiarEstado}
+                            />
+                        ):(null)
+                        )}
                 
                 </div>
             )}
