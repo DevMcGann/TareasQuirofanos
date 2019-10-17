@@ -3,11 +3,6 @@ import uuid from 'uuid';
 import Tarea from './Tarea'
 
 
-/*Probar:
-El entrar a VentanaQuirofano, que cargue todas las tareas de LocalStaorage.
-Crear otro Hook [tareasFiltradas] donde hacemod un filter de esa const con todas las tareas con tarea.idQuirofano === quirofano.id
-Operar sobre ese Hook 
-*/
 
 const VentanaQuirofano = ({quirofanoClicado}) => {
 
@@ -26,8 +21,6 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
     const[tareaNueva, setTareaNueva] = useState("")
     /************************************************ */
 
-    //filtrar tareas del array de tareas, segun su idQuirofano == quirofano.id
-    //const filtrado = tareasArray.filter(tarea => tarea.idQuirorano === quirofano.id)
     
 
 
@@ -35,7 +28,7 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
         e.preventDefault();
         const tarea= {
             id:uuid(),
-            idQuirorano: quirofano.id,
+            idQuirofano: quirofano.id,
             nombre:tareaNueva,
             complete: false
         
@@ -100,7 +93,7 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
                  <div className="listaTareas">
                         <h2>Tareas de {nombreQuirofano}</h2>
                         
-                     {tareasArray.map((tarea,index) => tarea.idQuirorano === quirofano.id ? (
+                     {tareasArray.map((tarea,index) => tarea.idQuirofano === quirofano.id ? (
                          <Tarea 
                              key={index}
                              tarea={tarea}

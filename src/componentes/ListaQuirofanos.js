@@ -42,14 +42,13 @@ const ListaQuirofanos = () => {
           setQuirofanosArray(newArray)
     }
     const eliminar_Tareas_Relacionadas = id => {
+    
         let tareas = JSON.parse(localStorage.getItem('tareas'))
-        console.log(tareas)
         let tareas_filtradas = tareas.filter( function (tarea){
             return tarea.idQuirofano !== id
         });
         localStorage.setItem('tareas', JSON.stringify(tareas_filtradas))
-        console.log(tareas_filtradas)
-    }
+       }
 
 
 
