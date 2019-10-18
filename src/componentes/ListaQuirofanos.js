@@ -70,9 +70,7 @@ const ListaQuirofanos = () => {
 
     return ( 
         <React.Fragment>
-              <div className="header">
-                <h1>Administrador de Tareas</h1>
-              </div>
+              
         <Router>
             <Switch>
                 <Route exact path="/" render={() => (
@@ -81,7 +79,8 @@ const ListaQuirofanos = () => {
                         <form onSubmit={handleSubmit}>
                             <input type="text" placeholder="Nuevo Quirofano"
                             onChange={(e) => setNuevoQuirofano(e.target.value)} required
-                            value={nuevoQuirofano}/>
+                            value={nuevoQuirofano}
+                            className="inputQuirofano"/>
                         </form>
                     </div>
 

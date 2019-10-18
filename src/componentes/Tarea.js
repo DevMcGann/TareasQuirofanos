@@ -21,10 +21,17 @@ const Tarea = ({tarea,eliminaTarea,cambiarEstadoTarea,index}) => {
     return ( 
         <div className="tarea"  style={{ backgroundColor:  tarea.complete ? "green" : "red" }}>
                 <h3> {tarea.nombre}</h3>
-                <button onClick={cambiarEstado}>Completar</button> 
-                <button onClick={clickEliminar}> Eliminar </button>           
+                <div className="botoneraTareas">
+                    {tarea.complete ? (<i className="fas fa-check-circle"
+                    onClick={cambiarEstado}>Completa</i>) : (<i className="fas fa-circle" onClick={cambiarEstado}>Incompleta</i>)}
+                    <i className="fas fa-trash" onClick={clickEliminar}></i>
+                </div>
+                           
              </div>
      );
 }
  
 export default Tarea;
+
+//<i class="fas fa-check-circle"></i>
+//onClick={cambiarEstado}

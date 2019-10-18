@@ -1,12 +1,51 @@
 .App {
   text-align: center;
 }
+/**********HEADER************************/
+.header{
+  background-color: rgb(51, 12, 12);
+  display:flex;
+  align-content: center;
+  justify-content: space-around;
+  max-height: 250px;
+}
+.header img{
+  border-radius: 300px;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+.header h1{
+  flex:1;
+  color:white;
+  align-self: center;
+}
+/***********************************************/
+
+
+/*********** LISTA quirofanos ***************/
+
+
+.formNuevoQuirofano {
+  margin-top: 2rem;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.formNuevoQuirofano input {
+  min-height: 45px;
+  flex:1;
+  justify-self: center;
+  align-self: center;
+  font-size: 1rem;
+}
 
 .listaQuirofanos{
   display:flex;
   flex-direction: column;
   flex:1;
   margin-top: 3rem;
+  background-color: rgb(34, 37, 32);
 }
 
 .quirofano{
@@ -36,20 +75,41 @@
 }
 
 
+
+
+
+/*********************TAREAS******************************/
+
 .tarea{
   display:flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: rgb(95, 32, 32);
   color:white;
   margin-top: 1rem;
   font-size: 1.5rem;
   cursor: pointer;
-
+  flex:1;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .tarea button{
   color:white;
   background-color: rgb(129, 19, 19);
   border-radius: 20px;
   cursor: pointer;
+}
+
+.nuevaTarea input {
+  font-size: 1.5rem;
+}
+
+.botoneraTareas {
+  flex:.2;
+  justify-content: space-between;
+  background-color: rgb(87, 84, 84);
+}
+.botoneraTareas i{
+
+  margin: 1rem;
 }

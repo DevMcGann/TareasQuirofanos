@@ -60,7 +60,14 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
     }
 
   
+    const todasIncompletas= e=> {
+         const copiaArray = [...tareasArray]
+         copiaArray.map(tarea => (
+             tarea.complete=false
+         ))
+         setTareasArray(copiaArray)
 
+    }
 
 
       //guardar en LocalStorage
@@ -87,6 +94,7 @@ const VentanaQuirofano = ({quirofanoClicado}) => {
                         value={tareaNueva}
                     />
                 </form>
+                <button onClick={todasIncompletas}>Marcar todas Incompletas</button>
             </div>
 
             {!tareasArray.length ? (<p>No hay tareas</p>) : (
