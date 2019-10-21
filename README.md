@@ -1,3 +1,10 @@
+App de administración de tareas hecha con REACT.  
+Pensada para administrar quirófanos y sus tareas para residentes de anestecia.  
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
